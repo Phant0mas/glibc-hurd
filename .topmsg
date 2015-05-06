@@ -1,16 +1,8 @@
-Subject: Baseline for our topic branches.
+From: Samuel Thibault <samuel.thibault@ens-lyon.org>
+Subject: [PATCH] Build stubs for new gnumach.defs
 
----
+* mach/Makefile (user-interfaces): Add mach/gnumach.
+* sysdeps/mach/configure.ac (mach_interface_list): Add gnumach.
+* sysdeps/mach/configure (mach_interface_list): Regenerate.
 
-This need not strictly be a TopGit branch, but it is for easy synchronization
-between different machines.
-
-As the baseline is merged into the topic branches, it is forward-only.
-
-To advance it:
-
-    $ echo [SHA1] > .topdeps
-    $ git commit -m Advance. -- .topdeps
-    $ tg update
-
----
+Signed-off-by: Samuel Thibault <samuel.thibault@ens-lyon.org>
