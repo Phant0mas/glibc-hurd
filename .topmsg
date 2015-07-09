@@ -1,16 +1,10 @@
-Subject: Baseline for our topic branches.
+commit ed4060f50ea84c7e238110955253647fc091aee9
+Author: Samuel Thibault <samuel.thibault@ens-lyon.org>
+Date:   Thu Jul 9 13:56:30 2015 +0200
 
----
-
-This need not strictly be a TopGit branch, but it is for easy synchronization
-between different machines.
-
-As the baseline is merged into the topic branches, it is forward-only.
-
-To advance it:
-
-    $ echo [SHA1] > .topdeps
-    $ git commit -m Advance. -- .topdeps
-    $ tg update
-
----
+    hurd: permit to use mlock from non-root process
+    
+    * sysdeps/mach/hurd/mlock.c (mlock): When __get_privileged_ports
+    returns an error, also try to use host port from __mach_host_self for
+    the __vm_wire call.
+    * sysdeps/mach/hurd/munlock.c (munlock): Likewise.
