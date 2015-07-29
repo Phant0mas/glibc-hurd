@@ -20,7 +20,10 @@
 
 /* Threshold at which vm_copy is more efficient than well-optimized copying
    by words.  This parameter should be tuned as necessary.  */
+#define PAGE_THRESHOLD		(16384)	/* XXX Tune this.  */
+#if 0
 #define PAGE_COPY_THRESHOLD		(16384)	/* XXX Tune this.  */
+#endif
 
 #define PAGE_SIZE		__vm_page_size
 #define PAGE_COPY_FWD(dstp, srcp, nbytes_left, nbytes)			      \

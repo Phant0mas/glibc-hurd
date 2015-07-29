@@ -22,3 +22,14 @@ PAGE_COPY_THRESHOLD doesn't like PAGE_COPY_THRESHOLD being
 in elf/ doesn't manage to determine that it also needs to include
 wordcopy.os.
 ”
+
+Also, since the code doesn't seem to have been really tested, it seems
+to be bogus: in sysdeps/generic/pagecopy.h we have
+
+#define PAGE_COPY_FWD_MAYBE(dstp, srcp, nbytes_left, nbytes) \
+...
+assert (nbytes_left == 0);
+nbytes -= nbytes_before;
+
+which doesn't make sense since here both nbytes_left and nbytes are
+actually len in string/memmove.c...
